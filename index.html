@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ef6693">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ef6693'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='32' fill='white'%3Eあ%3C/text%3E%3C/svg%3E">
+  <title>日文數字聽寫｜0～10</title>
+  <style>
+    :root{--ink:#25314e;--pink:#ef6693;--pink-light:#fff0f5;--orange:#f5aa42;--green:#4db78b;--purple:#7060bc;--line:#eadce4}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(150deg,#fff7fa,#fff0f4 55%,#fff6df);font-family:"Microsoft JhengHei",system-ui,sans-serif;color:var(--ink);line-height:1.6}.wrap{width:min(720px,calc(100% - 32px));margin:auto}header{padding:22px 0 10px}.brand{font-weight:800;letter-spacing:.05em;color:#8e2c54}.tag{font-size:13px;background:#fff;border:1px solid #f3c0d0;border-radius:999px;padding:5px 10px;margin-left:8px;color:#a03460}.game{background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(92,47,71,.12);border-radius:24px;padding:clamp(24px,5vw,40px);margin:14px 0 28px;text-align:center}.eyebrow{font-size:14px;color:#a03460;font-weight:bold;letter-spacing:.09em}.game h1{margin:6px 0;font-size:clamp(30px,7vw,45px);line-height:1.25}.intro{margin:0 auto 22px;max-width:500px;color:#52607b}.status{display:flex;justify-content:space-between;gap:12px;background:#f5f2ff;border-radius:12px;padding:10px 14px;text-align:left;font-size:14px}.listen{appearance:none;border:0;background:var(--pink);color:#fff;border-radius:16px;padding:17px 26px;font:inherit;font-size:18px;font-weight:800;cursor:pointer;margin:25px 0 16px;box-shadow:0 6px 0 #bd416a;transition:transform .15s,box-shadow .15s}.listen:hover{transform:translateY(2px);box-shadow:0 4px 0 #bd416a}.listen:focus-visible,.answers button:focus-visible{outline:4px solid #f5aa42;outline-offset:3px}.listen:disabled{opacity:.65;cursor:default;transform:none}.prompt{font-weight:800;font-size:18px;min-height:32px}.answers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.answers button{border:2px solid #dfe4ef;border-radius:14px;background:#fff;color:var(--ink);padding:13px 6px;font:inherit;font-weight:800;font-size:20px;cursor:pointer;transition:transform .15s,border-color .15s,background .15s}.answers button:hover:not(:disabled){transform:translateY(-2px);border-color:var(--purple);background:#f5f2ff}.answers button:disabled{cursor:default}.answers button.correct{border-color:var(--green);background:#eaf9f1}.answers button.wrong{border-color:var(--pink);background:var(--pink-light)}.feedback{min-height:64px;margin:18px 0 0;padding:13px;border-radius:13px;background:#faf8fb;font-weight:bold}.feedback.good{background:#eaf9f1;color:#247052}.feedback.try{background:#fff0f5;color:#a03460}.next{appearance:none;border:0;border-radius:999px;background:var(--ink);color:#fff;padding:11px 20px;font:inherit;font-weight:bold;cursor:pointer;margin-top:13px}.hidden{display:none}.reference{margin:20px 0 35px;background:rgba(255,255,255,.75);border-radius:18px;padding:20px}.reference h2{font-size:18px;margin:0 0 10px}.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.number{padding:8px;border-radius:10px;background:#fff;text-align:center;border:1px solid #eee4ea}.number b{display:block}.number span{font-size:13px;color:#59657c}.pending{color:#a87516!important}footer{font-size:13px;color:#59657c;text-align:center;padding:0 0 30px}@media(max-width:430px){.answers{grid-template-columns:repeat(3,1fr)}.numbers{grid-template-columns:repeat(3,1fr)}.status{display:block}.status span+span{display:block;margin-top:3px}}
+  </style>
+</head>
+<body>
+  <header class="wrap"><span class="brand">日文生活教室</span><span class="tag">聽寫練習</span></header>
+  <main class="wrap">
+    <section class="game" aria-labelledby="title">
+      <div class="eyebrow">NUMBERS 0–10</div>
+      <h1 id="title">聽一聽，選數字</h1>
+      <p class="intro">按下播放，聽老師念日文後，選出正確的阿拉伯數字。</p>
+      <div class="status"><span id="progress">第 1／10 題</span><span id="score">答對 0 題</span></div>
+      <button class="listen" id="listen" type="button">▶ 播放日文讀音</button>
+      <div class="prompt" id="prompt">準備好了嗎？請先播放讀音。</div>
+      <div class="answers" id="answers" aria-label="數字答案"></div>
+      <div class="feedback" id="feedback" aria-live="polite">聽完後，選擇你認為正確的數字。</div>
+      <button class="next hidden" id="next" type="button">下一題</button>
+    </section>
+    <section class="reference" aria-labelledby="reference-title">
+      <h2 id="reference-title">小抄：0～10</h2>
+      <div class="numbers">
+        <div class="number"><b>0</b><span>ゼロ</span></div><div class="number"><b>1</b><span>いち</span></div><div class="number"><b>2</b><span>に</span></div><div class="number"><b>3</b><span>さん</span></div><div class="number"><b>4</b><span>よん</span></div><div class="number"><b>5</b><span>ご</span></div><div class="number"><b>6</b><span>ろく</span></div><div class="number"><b>7</b><span>なな</span></div><div class="number"><b>8</b><span>はち</span></div><div class="number"><b>9</b><span>きゅう</span></div><div class="number"><b>10</b><span>じゅう</span></div>
+      </div>
+    </section>
+  </main>
+  <footer>不需登入・不蒐集個人資料</footer>
+  <script>
+    const questions = [
+      {n:0, jp:'ゼロ', file:'ゼロ.aac'}, {n:1, jp:'いち', file:'いち.aac'}, {n:2, jp:'に', file:'に.aac'},
+      {n:3, jp:'さん', file:'さん.aac'}, {n:4, jp:'よん', file:'よん.aac'}, {n:5, jp:'ご', file:'ご.aac'},
+      {n:6, jp:'ろく', file:'ろく.aac'}, {n:7, jp:'なな', file:'なな.aac'}, {n:8, jp:'はち', file:'はち.aac'}, {n:9, jp:'きゅう', file:'きゅう.aac'}, {n:10, jp:'じゅう', file:'じゅう.aac'}
+    ];
+    const choices = Array.from({length:11}, (_, i) => i);
+    const state = {order:[...questions].sort(() => Math.random() - .5), index:0, score:0, answered:false, finished:false};
+    const el = {
+      listen:document.querySelector('#listen'), prompt:document.querySelector('#prompt'), answers:document.querySelector('#answers'),
+      feedback:document.querySelector('#feedback'), next:document.querySelector('#next'), progress:document.querySelector('#progress'), score:document.querySelector('#score')
+    };
+    function current(){ return state.order[state.index]; }
+    function play(){
+      const audio = new Audio('audio/raw/' + encodeURIComponent(current().file));
+      audio.play().then(() => { el.prompt.textContent = '你聽到的是哪一個數字？'; }).catch(() => {
+        el.feedback.className = 'feedback try'; el.feedback.textContent = '音檔暫時無法播放，請確認檔案仍在 audio/raw 資料夾。';
+      });
+    }
+    function render(){
+      state.answered = false; el.next.classList.add('hidden'); el.listen.disabled = false;
+      el.progress.textContent = `第 ${state.index + 1}／${state.order.length} 題`; el.score.textContent = `答對 ${state.score} 題`;
+      el.prompt.textContent = '準備好了嗎？請先播放讀音。'; el.feedback.className = 'feedback'; el.feedback.textContent = '聽完後，選擇你認為正確的數字。';
+      el.answers.innerHTML = '';
+      choices.forEach(n => { const b=document.createElement('button'); b.type='button'; b.textContent=n; b.addEventListener('click', () => answer(n,b)); el.answers.appendChild(b); });
+    }
+    function answer(n, button){
+      if(state.answered) return; state.answered = true; el.listen.disabled = true;
+      const q=current(); const buttons=[...el.answers.children]; buttons.forEach(b => { b.disabled=true; if(Number(b.textContent) === q.n) b.classList.add('correct'); });
+      if(n === q.n){ state.score++; el.feedback.className='feedback good'; el.feedback.textContent=`答對了！${q.jp} 是 ${q.n}。`; }
+      else { button.classList.add('wrong'); el.feedback.className='feedback try'; el.feedback.textContent=`再記一次：${q.jp} 是 ${q.n}。`; }
+      el.score.textContent = `答對 ${state.score} 題`; el.next.textContent = state.index === state.order.length - 1 ? '查看結果' : '下一題'; el.next.classList.remove('hidden');
+    }
+    el.listen.addEventListener('click', play);
+    el.next.addEventListener('click', () => {
+      if(state.finished){ state.order=[...questions].sort(() => Math.random()-.5); state.index=0; state.score=0; state.finished=false; el.listen.classList.remove('hidden'); el.answers.classList.remove('hidden'); render(); return; }
+      if(state.index < state.order.length - 1){ state.index++; render(); } else { finish(); }
+    });
+    function finish(){
+      el.listen.classList.add('hidden'); el.answers.classList.add('hidden'); el.next.classList.remove('hidden'); el.next.textContent='再玩一次';
+      el.prompt.textContent='本輪完成！'; el.feedback.className='feedback good'; el.feedback.textContent=`你答對 ${state.score}／${state.order.length} 題。很棒，再聽一次會更熟悉！`;
+      state.finished=true;
+    }
+    render();
+  </script>
+</body>
+</html>
